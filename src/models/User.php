@@ -3,8 +3,7 @@ require_once(realpath(MODEL_PATH).'/Model.php');
 
 class User extends Model{
     //define maping with model BD 
-    protected static $tableName = 'Users';
-    //define maping with bd model 
+    protected static $tableName = 'users';
     protected static  $columns = [
         'id',
         'name',
