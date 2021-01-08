@@ -36,6 +36,15 @@ class Model {
         return $objects;
     }
 
+    public static function getOne($filters = [], $columns = '*'){
+        //see which class was called function get
+        $class = get_called_class();
+        //get reult from select
+        $result = static::getResultFromSelect($filters, $columns);
+        //with a valid result will fetch first regist, if not result=null
+        return $result ? new $class($result->fetch_assoc()):null;
+    }
+
     public function __set ($key, $value){
         $this->values[$key] = $value;
     }
