@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="assets\css\comum.css">
     <link rel="stylesheet" type="text/css" href="assets\css\bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets\css\icofont.min.css">
-    <title>PicarPonto</title>
+    <title>Relógio de Ponto</title>
 </head>
 
 <body>
