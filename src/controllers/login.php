@@ -8,7 +8,7 @@ if(count($_POST) > 0) {
     try {
         $user = $login->checkLogin();
         $_SESSION['user'] = $user;
-        header("Location: dailyRecordsController.php");
+        header("Location: dailyRecords.php");
     } catch(AppException $e) {
         $exception = $e;
     }

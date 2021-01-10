@@ -5,8 +5,8 @@ class Model {
     protected static $columns = [];
     protected $values = [];
 
-    function __construct($arr) {
-        $this->loadFromArray($arr);
+    function __construct($arr, $sanitize = true) {
+        $this->loadFromArray($arr, $sanitize);
     }
 
     public function loadFromArray($arr){
@@ -17,7 +17,7 @@ class Model {
         }
     }
 
-    public function __get ($key){
+    public function __get($key) {
         return $this->values[$key];
     }
 
@@ -33,7 +33,7 @@ class Model {
         //see which class was called function get
         $class = get_called_class();
         //get reult from select
-        $result = static::getResultFromSelect($filters, $columns);
+        $result = static::getResultSetFromSelect($filters, $columns);
         //with a valid result will fetch first regist, if not result=null
         return $result ? new $class($result->fetch_assoc()) : null;
     }
@@ -45,7 +45,7 @@ class Model {
             //see which class was called function get
             $class = get_called_class();
             //pass array into the user constructor, which passes to the model constructor and ends up building User objects
-            while($row = $result->fetch_assoc()){
+            while($row = $result->fetch_assoc()) {
                 //insrt new instance q/push inside objects
                 array_push($objects, new $class($row));
             }
@@ -54,12 +54,12 @@ class Model {
     }
 
 
-    public static function getResultFromSelect($filters = [], $columns = '*'){
+    public static function getResultSetFromSelect($filters = [], $columns = '*') {
         $sql = "SELECT ${columns} FROM "
-        . static::$tableName
-        . static::getFilters($filters);
+            . static::$tableName
+            . static::getFilters($filters);
         $result = Database::getResultFromQuery($sql);
-        if($result->num_rows === 0){
+        if($result->num_rows === 0) {
             return null;
         } else {
             return $result;
@@ -72,17 +72,17 @@ class Model {
         if(count($filters) > 0) {
             $sql .= " WHERE 1 = 1";
             foreach($filters as $column => $value) {
-                $sql .= " AND ${column} = " . static::getFormatedValue($value);
+                if($column == 'raw') {
+                    $sql .= " AND {$value}";
+                } else {
+                    $sql .= " AND ${column} = " . static::getFormatedValue($value);
+                }
             }
-        }
-        $result = Database::getResultFromQuery($sql);
-        if ($result->num_rows === 0) {
-            return null;
-        } else {
-            return $result;
-        }
+        } 
+        return $sql;
     }
-    private static function getFormatedValue($value) {
+
+   private static function getFormatedValue($value) {
         if(is_null($value)) {
             return "null";
         } elseif(gettype($value) === 'string') {

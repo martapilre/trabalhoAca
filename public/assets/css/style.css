@@ -33,7 +33,7 @@ header.header .logo {
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 1.5rem;
+    font-size: 2rem;
     flex-basis: 250px;
     height: 100%;
 }
@@ -103,6 +103,12 @@ header.header .avatar {
     height: 75%;
     border-radius: 50%;
     margin-left: 10px;
+}
+
+header.header .avatar{
+    height: 80%;
+    border-radius: 50%;
+    margin: 0px 5px 0px 10px;
 }
 
 aside.sidebar {
@@ -178,8 +184,43 @@ aside.sidebar .info .main{
 }
 
 main.content{
+    background-color: white;
     grid-area: content;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, .2);
 }
+
+main.content .content-title{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #cccccc;
+    padding-bottom: 15px;
+}
+
+main.content .content-title .icon{
+    font-size: 3rem;
+}
+
+main.content .content-title h1{
+    font-size: 1.6rem;
+    font-weight: 300;
+    margin: 0;
+}
+
+main.content .content-title h2{
+    font-size: 1rem;
+    color: #888888;
+    font-weight: 100;
+}
+
+main.content .content-title h3{
+    font-weight: 500;
+}
+
+
+
 
 footer.footer{
     display: flex;
@@ -190,4 +231,8 @@ footer.footer{
     background-color: teal;
     color: #DDD;
     grid-area: footer;
+}
+
+.record{
+    font-size: 1.6rem;
 }

@@ -5,22 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="assets\css\login.css">
-    <link rel="stylesheet" type="text/css" href="assets\css\comum.css">
-    <link rel="stylesheet" type="text/css" href="assets\css\bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="assets\css\icofont.min.css">
-    <title>Relógio de Ponto</title>
+    <link rel="stylesheet" href="assets/css/login.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/icofont.min.css">
+    <title>Punch the Clock</title>
 </head>
 
 <body>
     <form class="form-login" action="#" method="post">
         <div class="login-card card">
-            <div class="card-header">
-                <i class="icofont-login mr-2"></i>
-                <span class="font-weight-light">Pica</span>
+            <div class="card-header logo">
+                <span>Punch the</span>
                 <i class="icofont-stopwatch mx-1"></i>
-                <span class="font-weight-light">Ponto</span>
-                <i class="icofont-exit ml-2"></i>
             </div>
             <div class="card-body">
                 <?php include(TEMPLATE_PATH . '/messages.php') ?>

@@ -6,15 +6,16 @@ body {
     background-color: #DDD;
 }
 
+
 .form-login {
     flex-basis: 450px;
 }
 
 .login-card .card-header {
-    display: flex;
+    font-weight: bold;
     justify-content: center;
     align-items: center;
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .login-card .card-footer {
