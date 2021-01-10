@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" type="text/css" href="assets\css\icofont.min.css">
     <title>Sistema de Entradas e Saída</title>
 </head>
+
 <body>
     <form class="form-login" action="#" method="post">
         <div class="login-card card">
@@ -21,32 +23,32 @@
                 <i class="icofont-runner-alt-1 ml-2"></i>
             </div>
             <div class="card-body">
-                <? include(TEMPLATE_PATH . '/messages.php')?>
+                <?php include(TEMPLATE_PATH . '/messages.php') ?>
                 <div class="form-group">
                     <label for="email">E-mail</label>
                     <input type="email" id="email" name="email"
-                        class="form-control"
+                        class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
                         value="<?= $email ?>"
-                        placeholder="Informe o e-mail" autofocus>
-                    <div class="invalid-feedback">
-                        <?= $errors['email'] ?>
-                    </div>
+                        placeholder="Insert your e-mail here" autofocus>
+                        <div class="invalid-feedback">
+                            <?= $errors['email'] ?>
+                        </div>
                 </div>
                 <div class="form-group">
-                    <label for="password">Senha</label>
+                    <label for="password">Password</label>
                     <input type="password" id="password" name="password"
                         class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>"
-                        placeholder="Informe a senha">
-                    <div class="invalid-feedback">
-                        <?= $errors['password'] ?>
-                    </div>
+                        placeholder="Insert your password here">
+                        <div class="invalid-feedback">
+                            <?= $errors['password'] ?>
+                        </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-lg btn-primary">Entrar</button>
+                <button class="btn btn-lg btn-primary">Login</button>
             </div>
         </div>
     </form>
-   <!-- <?=texto?> -->
 </body>
+
 </html>

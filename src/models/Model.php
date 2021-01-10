@@ -72,16 +72,16 @@ class Model {
         if(count($filters) > 0) {
             $sql .= " WHERE 1 = 1";
             foreach($filters as $column => $value) {
-                if($column == 'raw') {
-                    $sql .= " AND {$value}";
-                } else {
-                    $sql .= " AND ${column} = " . static::getFormatedValue($value);
-                }
+                $sql .= " AND ${column} = " . static::getFormatedValue($value);
             }
-        } 
-        return $sql;
+        }
+        $result = Database::getResultFromQuery($sql);
+        if ($result->num_rows === 0) {
+            return null;
+        } else {
+            return $result;
+        }
     }
-
     private static function getFormatedValue($value) {
         if(is_null($value)) {
             return "null";
