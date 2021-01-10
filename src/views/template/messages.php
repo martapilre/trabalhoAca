@@ -10,14 +10,14 @@ if($exception) {
     ];
 
     //if was a ValidationException, insert all errors in variable errors
-    if(get_class($exception) === 'ValidationException'){
+    if(get_class($exception) === 'ValidationException') {
         $errors = $exception->getErrors();
     }
 }
 
-
 $alertType = '';
-if($message['type'] ==='error') {
+
+if($message['type'] === 'error') {
     $alertType = 'danger';
 } else {
     $alertType = 'success';
@@ -25,7 +25,8 @@ if($message['type'] ==='error') {
 ?>
 
 <?php if($message): ?>
-    <div  role="alert" class="my-3 alert alert-<?= $alertType ?>">
+    <div role="alert"
+        class="my-3 alert alert-<?= $alertType ?>">
         <?= $message['message'] ?>
     </div>
 <?php endif ?>

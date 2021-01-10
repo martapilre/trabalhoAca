@@ -23,7 +23,7 @@ class Login extends Model {
         }
     }
 
-    public function checkLogin(){
+    public function checkLogin() {
         $this->validate();
         $user = User::getOne(['email' => $this->email]);
         if($user) {

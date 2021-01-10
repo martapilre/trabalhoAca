@@ -1,14 +1,15 @@
 <?php
 loadModel('Login');
+session_start();
 $exception = null;
 
 if(count($_POST) > 0) {
     $login = new Login($_POST);
     try {
         $user = $login->checkLogin();
-        echo "User {$user->name} logged in!";
+        $_SESSION['user'] = $user;
+        header("Location: dailyRecordsController.php");
     } catch(AppException $e) {
-        // when gets here go show exception
         $exception = $e;
     }
 }

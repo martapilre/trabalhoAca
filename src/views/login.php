@@ -9,18 +9,18 @@
     <link rel="stylesheet" type="text/css" href="assets\css\comum.css">
     <link rel="stylesheet" type="text/css" href="assets\css\bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets\css\icofont.min.css">
-    <title>Sistema de Entradas e Saída</title>
+    <title>PicarPonto</title>
 </head>
 
 <body>
     <form class="form-login" action="#" method="post">
         <div class="login-card card">
             <div class="card-header">
-                <i class="icofont-travelling mr-2"></i>
-                <span class="font-weight-light">Entrada</span>
-                <span class="font-weight-bold">&</span>
-                <span class="font-weight-light">Saida</span>
-                <i class="icofont-runner-alt-1 ml-2"></i>
+                <i class="icofont-login mr-2"></i>
+                <span class="font-weight-light">Pica</span>
+                <i class="icofont-stopwatch mx-1"></i>
+                <span class="font-weight-light">Ponto</span>
+                <i class="icofont-exit ml-2"></i>
             </div>
             <div class="card-body">
                 <?php include(TEMPLATE_PATH . '/messages.php') ?>
@@ -30,18 +30,18 @@
                         class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
                         value="<?= $email ?>"
                         placeholder="Insert your e-mail here" autofocus>
-                        <div class="invalid-feedback">
-                            <?= $errors['email'] ?>
-                        </div>
+                    <div class="invalid-feedback">
+                        <?= $errors['email'] ?>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password"
                         class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>"
                         placeholder="Insert your password here">
-                        <div class="invalid-feedback">
-                            <?= $errors['password'] ?>
-                        </div>
+                    <div class="invalid-feedback">
+                        <?= $errors['password'] ?>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">
@@ -50,5 +50,4 @@
         </div>
     </form>
 </body>
-
 </html>
