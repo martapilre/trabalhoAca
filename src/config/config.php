@@ -2,6 +2,9 @@
 date_default_timezone_set('Europe/Lisbon');
 setlocale(LC_TIME, 'en_EN', 'en_EN.utf-8', 'english');
 
+//constants
+define('DAILY_TIME', 60 * 60 * 8);
+
 //Folders
 define('MODEL_PATH', realpath(dirname(__FILE__) . '/../models'));
 define('VIEW_PATH', realpath(dirname(__FILE__) . '/../views'));
