@@ -40,7 +40,7 @@ class Model {
 
     public static function get($filters = [], $columns = '*'){
         $objects = [];
-        $result = static::getResultFromSelect($filters, $columns);
+        $result = static::getResultSetFromSelect($filters, $columns);
         if($result){
             //see which class was called function get
             $class = get_called_class();
@@ -69,26 +69,26 @@ class Model {
     // insert data in db
     public function insert(){
         // comand to insert data
-        $sql = "INSERT INTO ".static::$tableName ."("
+        $sql = "INSERT INTO " . static::$tableName . " ("
         //get an array and transform it into a string, implode -> Join array elements with a string
-        . implode(",", static::$columns) .") VALUES (";
+        . implode(",", static::$columns) . ") VALUES (";
         // to cycle through all the columns
-        foreach(static::$columns as $col){
+        foreach(static::$columns as $col) {
             // append sql for each values
             $sql .= static::getFormatedValue($this->$col) . ",";
         }
         // last elemtent da string
-        $sql[strlen($sql) - 1] = ")";
+        $sql[strlen($sql) - 1] = ')';
         // reust is id from user
         $id = Database::executeSQL($sql);
         $this->id = $id;
     }
 
-    public function update(){
+    public function update() {
         $sql = "UPDATE " . static::$tableName . " SET ";
         // scroll through the col and update
         foreach(static::$columns as $col) {
-            $sql .= " ${col} = " .static::getFormatedValue($this->$col) . ",";
+            $sql .= " ${col} = " . static::getFormatedValue($this->$col) . ",";
         }
         $sql[strlen($sql) - 1] = ' ';
         $sql .= "WHERE id = {$this->id}";
@@ -112,7 +112,7 @@ class Model {
     }
 
     // formate values
-   private static function getFormatedValue($value) {
+    private static function getFormatedValue($value) {
         if(is_null($value)) {
             return "null";
         } elseif(gettype($value) === 'string') {

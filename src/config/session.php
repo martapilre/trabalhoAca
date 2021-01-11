@@ -1,7 +1,7 @@
 <?php
 
 //if is valid it continues, if it doesn't redirect to login view
-function requiredValidSession(){
+function requireValidSession(){
     //$_SESSION is an associative array containing session variables available to the current script
     $user = $_SESSION['user'];
     //if user dont exists

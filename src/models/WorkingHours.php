@@ -26,4 +26,26 @@ class WorkingHours extends Model {
 
         return $registry;
     }
+
+    // to see what is the next time
+    public function getNextTime(){
+        if(!$this->time1) return 'time1';
+        if(!$this->time2) return 'time2';
+        if(!$this->time3) return 'time3';
+        if(!$this->time4) return 'time4';
+        return null;
+    }
+
+    public function punch($time){
+        $timeColumn = $this->getNextTime();
+        if(!$timeColumn) {
+            throw new AppException("You already punch me 4 times!");
+        }
+        $this->$timeColumn = $time;
+        if($this->id) {
+            $this->update();
+        } else {
+            $this->insert();
+        }
+    }
 }

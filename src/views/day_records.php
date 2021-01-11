@@ -23,10 +23,21 @@
            </div>
         </div>
         <div class="card-footer d-flex justify-content-center">
-            <a href="#" class="btn btn-success btn-lg">
+            <a href="punch.php" class="btn btn-success btn-lg">
                 <i class="icofont-check mr-1"></i>
                 Punch
             </a>
         </div>
     </div>
+
+    <form class="mt-5" action="punch.php" method="post">
+        <div class="input-group no-border">
+            <input type="text" name="forcedTime" class="form-control"
+                placeholder="Insert a hour here to silumate a punch!">
+            <button class="btn btn-danger ml-3">
+                Punch Simulation
+            </button>
+        </div>
+    </form>
+
 </main>
