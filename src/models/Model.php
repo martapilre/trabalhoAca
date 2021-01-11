@@ -66,6 +66,24 @@ class Model {
         }
     }
 
+    // save data in db
+    public function save(){
+        // comand to insert data
+        $sql = "INSERT INTO ".static::$tableName ."("
+        //get an array and transform it into a string, implode -> Join array elements with a string
+        . implode(",", static::$columns) .") VALUES (";
+        // to cycle through all the columns
+        foreach(static::$columns as $col){
+            // append sql for each values
+            $sql .= static::getFormatedValue($this->$col) . ",";
+        }
+        // last elemtent da string
+        $sql[strlen($sql) - 1] = ")";
+        // reust is id from user
+        $id = Database::executeSQL($sql);
+        $this->id = $id;
+    }
+
     //return sql represents selct from model
     private static function getFilters($filters) {
         $sql = '';
@@ -82,6 +100,7 @@ class Model {
         return $sql;
     }
 
+    // formate values
    private static function getFormatedValue($value) {
         if(is_null($value)) {
             return "null";

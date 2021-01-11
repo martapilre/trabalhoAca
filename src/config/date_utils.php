@@ -8,7 +8,7 @@ function getDateAsDateTime($date){
 // check if is weekend, >= 6 
 function isWeekend($date){
     $inputDate = getDateAsDateTime($date);
-    return $inputDate->format >= 6;
+    return $inputDate->format('N') >= 6;
 }
 
 // check if date 1 is bigger than date 2
