@@ -66,8 +66,8 @@ class Model {
         }
     }
 
-    // save data in db
-    public function save(){
+    // insert data in db
+    public function insert(){
         // comand to insert data
         $sql = "INSERT INTO ".static::$tableName ."("
         //get an array and transform it into a string, implode -> Join array elements with a string
@@ -82,6 +82,17 @@ class Model {
         // reust is id from user
         $id = Database::executeSQL($sql);
         $this->id = $id;
+    }
+
+    public function update(){
+        $sql = "UPDATE " . static::$tableName . " SET ";
+        // scroll through the col and update
+        foreach(static::$columns as $col) {
+            $sql .= " ${col} = " .static::getFormatedValue($this->$col) . ",";
+        }
+        $sql[strlen($sql) - 1] = ' ';
+        $sql .= "WHERE id = {$this->id}";
+        Database::executeSQL($sql);
     }
 
     //return sql represents selct from model
