@@ -1,15 +1,15 @@
 <?php
 
-class ValidationException extends Exception {
+class ValidationException extends AppException {
 
     private $errors = [];
 
     public function __construct($errors = [],
-    $message = 'Validation ERROR',
-    $code = 0, $previous = null) {
-    parent::__construct($message, $code, $previous);
-    $this->errors = $errors;
-}
+        $message = 'Validation ERROR',
+        $code = 0, $previous = null) {
+        parent::__construct($message, $code, $previous);
+        $this->errors = $errors;
+    }
 
     // method to return array of errors
     public function getErrors() {

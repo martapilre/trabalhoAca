@@ -29,7 +29,7 @@ class Model {
         return $this->values;
     }
 
-    public static function getOne($filters = [], $columns = '*'){
+    public static function getOne($filters = [], $columns = '*') {
         //see which class was called function get
         $class = get_called_class();
         //get reult from select
@@ -38,10 +38,10 @@ class Model {
         return $result ? new $class($result->fetch_assoc()) : null;
     }
 
-    public static function get($filters = [], $columns = '*'){
+    public static function get($filters = [], $columns = '*') {
         $objects = [];
         $result = static::getResultSetFromSelect($filters, $columns);
-        if($result){
+        if($result) {
             //see which class was called function get
             $class = get_called_class();
             //pass array into the user constructor, which passes to the model constructor and ends up building User objects
@@ -94,7 +94,7 @@ class Model {
         $sql .= "WHERE id = {$this->id}";
         Database::executeSQL($sql);
     }
-
+    
     //return sql represents selct from model
     private static function getFilters($filters) {
         $sql = '';

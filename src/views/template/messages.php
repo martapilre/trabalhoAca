@@ -8,9 +8,9 @@ if(isset($_SESSION['message'])) {
 } elseif($exception) {
     $message = [
              //type of information
-            'type' => 'error',
-            'message' => $exception->getMessage()
-            ];
+             'type' => 'error',
+             'message' => $exception->getMessage()
+         ];
 
     //if was a ValidationException, insert all errors in variable errors
     if(get_class($exception) === 'ValidationException') {

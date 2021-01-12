@@ -10,7 +10,7 @@ class Database {
             $env['password'], $env['database']);
 
         if($conn->connect_error) {
-            die("Error: " . $conn->connect_error);
+            die("Erro: " . $conn->connect_error);
         }
 
         return $conn;
@@ -24,17 +24,15 @@ class Database {
     }
 
     // method to execute sql
-    public static function executeSQL($sql){
+    public static function executeSQL($sql) {
         $conn = self::getConnection();
         // if you enter here, it means that an error happened
-        if(!mysqli_query($conn, $sql)){
-                throw new Exception(mysqli_error($conn));
+        if(!mysqli_query($conn, $sql)) {
+            throw new Exception(mysqli_error($conn));
         }
         //get entered id, close connection and return the id
         $id = $conn->insert_id;
         $conn->close();
         return $id;
     }
-
-    
 }

@@ -2,7 +2,7 @@
 class Login extends Model {
 
     // test if have an email and password to send specific errors
-    public function validate(){
+    public function validate() {
         $errors = [];
 
         // if dont insert an email

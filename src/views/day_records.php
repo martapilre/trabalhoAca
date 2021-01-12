@@ -6,10 +6,10 @@
             'icofont-check-alt'
         );
         include(TEMPLATE_PATH . "/messages.php");
-    ?>
-    <div class="card">
-        <div class="card-header">
-            <h3><?= $today ?></h3>
+        ?>
+        <div class="card">
+            <div class="card-header">
+                <h3><?= $today ?></h3>
             <p class="mb-0">Today Time Records</p>
         </div>
         <div class="class-body">
@@ -31,11 +31,10 @@
     </div>
 
     <form class="mt-5" action="punch.php" method="post">
-        <div class="input-group no-border">
-            <input type="text" name="forcedTime" class="form-control"
-                placeholder="Insert a hour here to silumate a punch!">
+    <div class="input-group no-border">
+            <input type="text" name="forcedTime" class="form-control" placeholder="Insert a hour here to silumate a punch!">
             <button class="btn btn-danger ml-3">
-                Punch Simulation
+                Punch Simulator
             </button>
         </div>
     </form>
