@@ -32,7 +32,8 @@
             <i class="icon icofont-hour-glass text-primary"></i>
             <div class="info">
                 <span class="main text-primary">
-                    04:23
+                    <?=$activeClock === 'workedInterval'? 'active-clock': ''?>
+                    <?=$workedInterval?>
                 </span>
                 <span class="label text-muted">Worked Hours</span>
             </div>
@@ -42,7 +43,8 @@
             <i class="icon icofont-ui-alarm text-danger"></i>
             <div class="info">
                 <span class="main text-danger">
-                    18:00
+                <?=$activeClock === 'exitTime'? 'active-clock': ''?>
+                <?=$exitTime?>
                 </span>
                 <span class="label text-muted">Exit Time</span>
             </div>

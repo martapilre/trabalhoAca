@@ -15,3 +15,5 @@ print_r($t3);
 echo '<br>';
 print_r($t4);
 echo '<br>';
+
+//print_r($wh->getExitTime());
