@@ -4,12 +4,12 @@
             <li class="nav-item">
                 <a href="day_records.php">
                     <i class="icofont-ui-check mr-2"></i>
-                    Pick
-                </a>
+                    Punch Here
+                    </a>
             </li>
             <li class="nav-item">
-                <a href="#">
-                    <i class="icofont-ui-calendar mr-2"></i>
+                <a href="monthly_report.php">
+                    <i class="icofont-chart-histogram mr-2"></i>
                     Monthly Report
                 </a>
             </li>
@@ -31,20 +31,20 @@
         <div class="sidebar-widget">
             <i class="icon icofont-hour-glass text-primary"></i>
             <div class="info">
-                <span class="main text-primary">
-                    <?=$activeClock === 'workedInterval'? 'active-clock': ''?>
-                    <?=$workedInterval?>
+                <span class="main text-primary"
+                    <?= $activeClock === 'workedInterval' ? 'active-clock' : '' ?>>
+                    <?= $workedInterval ?>
                 </span>
                 <span class="label text-muted">Worked Hours</span>
-            </div>
+                </div>
         </div>
         <div class="division my-3"></div>
         <div class="sidebar-widget">
             <i class="icon icofont-ui-alarm text-danger"></i>
             <div class="info">
-                <span class="main text-danger">
-                <?=$activeClock === 'exitTime'? 'active-clock': ''?>
-                <?=$exitTime?>
+                <span class="main text-danger"
+                    <?= $activeClock === 'exitTime' ? 'active-clock' : '' ?>>
+                    <?= $exitTime ?>
                 </span>
                 <span class="label text-muted">Exit Time</span>
             </div>

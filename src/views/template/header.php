@@ -11,7 +11,7 @@
     <title>Punch the Clock</title>
 </head>
 
-<body class="hide-sidebar">
+<body>
     <header class="header">
         <div class="logo">
                 <span>Punch the</span>

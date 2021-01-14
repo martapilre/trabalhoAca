@@ -32,7 +32,7 @@
 
     <form class="mt-5" action="punch.php" method="post">
     <div class="input-group no-border">
-            <input type="text" name="forcedTime" class="form-control" placeholder="Insert a hour here to silumate a punch!">
+            <input type="text" name="forcedTime" class="form-control" placeholder="Insert hour here to silumate a punch!">
             <button class="btn btn-danger ml-3">
                 Punch Simulator
             </button>
