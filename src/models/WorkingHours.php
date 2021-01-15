@@ -68,10 +68,8 @@ class WorkingHours extends Model {
         $part1 = new DateInterval('PT0S');
         $part2 = new DateInterval('PT0S');
 
-        // AM
         if($t1) $part1 = $t1->diff(new DateTime());
         if($t2) $part1 = $t1->diff($t2);
-        // PM
         if($t3) $part2 = $t3->diff(new DateTime());
         if($t4) $part2 = $t3->diff($t4);
 
@@ -102,26 +100,40 @@ class WorkingHours extends Model {
         }
     }
 
-    public static function getMonthlyReport($userId, $date){
+    function getBalance() {
+        // if it is not a date in the past and it is not a working day
+        if(!$this->time1 && !isPastWorkday($this->work_date)) return '';
+        if($this->worked_time == DAILY_TIME) return '-';
+
+        // balance in seconds
+        $balance = $this->worked_time - DAILY_TIME;
+        // 
+        $balanceString = getTimeStringFromSeconds(abs($balance));
+        // to see what is the signal
+        $signal = $this->worked_time >= DAILY_TIME ? '+' : '-';
+        return "{$signal}{$balanceString}";
+    }
+
+    public static function getMonthlyReport($userId, $date) {
         $registries = [];
         $startDate = getFirstDayOfMonth($date)->format('Y-m-d');
         $endDate = getLastDayOfMonth($date)->format('Y-m-d');
 
         $result = static::getResultSetFromSelect([
             'user_id' => $userId,
-            'raw' => "work:date between '{$startDate}' AND '{$endDate}' "
+            'raw' => "work_date between '{$startDate}' AND '{$endDate}'"
         ]);
 
         // if wue have result
         if($result){
             // we get all lines in an array and if this atribuition was true
-            while($row = $result->fetch_assoc()){
+            while($row = $result->fetch_assoc()) {
                 //  get day in array
                 $registries[$row['work_date']] = new WorkingHours($row);
             }
+        }
             //return registries
             return $registries;
-        }
     }
     
 

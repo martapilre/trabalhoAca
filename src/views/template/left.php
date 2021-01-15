@@ -9,7 +9,7 @@
             </li>
             <li class="nav-item">
                 <a href="monthly_report.php">
-                    <i class="icofont-chart-histogram mr-2"></i>
+                    <i class="icofont-ui-calendar mr-2"></i>
                     Monthly Report
                 </a>
             </li>
@@ -29,9 +29,9 @@
     </nav>
     <div class="sidebar-widgets">
         <div class="sidebar-widget">
-            <i class="icon icofont-hour-glass text-primary"></i>
+            <i class="icon icofont-hour-glass text-info"></i>
             <div class="info">
-                <span class="main text-primary"
+                <span class="main text-info"
                     <?= $activeClock === 'workedInterval' ? 'active-clock' : '' ?>>
                     <?= $workedInterval ?>
                 </span>
