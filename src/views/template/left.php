@@ -14,9 +14,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#">
+                <a href="manager_report.php">
                     <i class="icofont-chart-histogram mr-2"></i>
-                    Human Resources
+                    Manager
                 </a>
             </li>
             <li class="nav-item">
