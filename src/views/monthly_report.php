@@ -8,6 +8,7 @@
     ?>
     <div>
 
+    
     <form class="mb-4" action="#" method="post">
 			<div class="input-group">
 				<?php if($user->is_admin): ?>
@@ -32,6 +33,10 @@
 				<button class="btn btn-info ml-2">
 					<i class="icofont-search"></i>
 				</button>
+         
+                <a class="btn btn-info ml-2" href="">
+					<i class="icofont-file-pdf"></i>
+                    </a>
 			</div>
 		</form>
 
@@ -67,3 +72,4 @@
         </table>
     </div>
 </main>
+

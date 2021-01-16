@@ -9,10 +9,16 @@ class Model {
         $this->loadFromArray($arr, $sanitize);
     }
 
-    public function loadFromArray($arr){
-        if($arr){
-            foreach($arr as $key => $value){
-                $this->$key = $value;
+    public function loadFromArray($arr, $sanitize = true){
+        if($arr) {
+            foreach($arr as $key => $value) {
+                $cleanValue = $value;
+                if($sanitize && isset($cleanValue)) {
+                    $cleanValue = strip_tags(trim($cleanValue));
+                    // get htlm entities convert all chars in html
+                    $cleanValue = htmlentities($cleanValue, ENT_NOQUOTES);
+                }
+                $this->$key = $cleanValue;
             }
         }
     }
@@ -25,6 +31,7 @@ class Model {
         $this->values[$key] = $value;
     }
 
+    // get values in a array 
     public function getValues() {
         return $this->values;
     }

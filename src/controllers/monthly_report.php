@@ -2,7 +2,9 @@
 session_start();
 requireValidSession();
 
+
 $currentDate = new DateTime();
+
 
 $user = $_SESSION['user'];
 $selectedUserId = $user->id;
@@ -51,6 +53,7 @@ $expectedTime = $workDay * DAILY_TIME;
 $balance = getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime));
 $sign = ($sumOfWorkedTime >= $expectedTime) ? '+' : '-';
 
+
 loadTemplateView('monthly_report', [
     'report' => $report,
     'sumOfWorkedTime' => getTimeStringFromSeconds($sumOfWorkedTime),
@@ -58,5 +61,5 @@ loadTemplateView('monthly_report', [
     'selectedPeriod' => $selectedPeriod,
     'periods' => $periods,
     'selectedUserId' => $selectedUserId,
-    'users' => $users,
+    'users' => $users
 ]);
