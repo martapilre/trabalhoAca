@@ -13,6 +13,7 @@
                     Monthly Report
                 </a>
             </li>
+            <?php if($user->is_admin): ?>
             <li class="nav-item">
                 <a href="manager_report.php">
                     <i class="icofont-chart-histogram mr-2"></i>
@@ -20,11 +21,12 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="#">
+                <a href="users.php">
                     <i class="icofont-users mr-2"></i>
                     Users
                 </a>
             </li>
+            <?php endif ?>
         </ul>
     </nav>
     <div class="sidebar-widgets">

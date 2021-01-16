@@ -101,6 +101,16 @@ class Model {
         return $result->fetch_assoc()['count'];
     }
 
+    
+    public function delete() {
+        static::deleteById($this->id);
+    }
+
+    public static function deleteById($id) {
+        $sql = "DELETE FROM " . static::$tableName . " WHERE id = {$id}";
+        Database::executeSQL($sql);
+    }
+
 
     //return sql represents selct from model
     private static function getFilters($filters) {

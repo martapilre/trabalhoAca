@@ -30,6 +30,7 @@
         </div>
     </div>
 
+    <?php if($user->is_admin): ?>
     <form class="mt-5" action="punch.php" method="post">
     <div class="input-group no-border">
             <input type="text" name="forcedTime" class="form-control" placeholder="Insert hour here to silumate a punch!">
@@ -38,5 +39,6 @@
             </button>
         </div>
     </form>
+    <?php endif ?>
 
 </main>
