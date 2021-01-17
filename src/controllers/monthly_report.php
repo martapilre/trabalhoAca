@@ -1,4 +1,8 @@
 <?php
+require_once __DIR__ . '/../../vendor/autoload.php';
+
+use Dompdf\Dompdf;
+
 session_start();
 requireValidSession();
 
@@ -54,9 +58,35 @@ $balance = getTimeStringFromSeconds(abs($sumOfWorkedTime - $expectedTime));
 $sign = ($sumOfWorkedTime >= $expectedTime) ? '+' : '-';
 
 
+if($_POST["export"] == "export_pdf"){
+
+
+$dompdf = new Dompdf();
+
+ob_start();
+
+include __DIR__ . "/../views/pdf/monthly_report.php";
+
+
+$pdfView = ob_get_clean();
+
+$dompdf->loadHtml($pdfView);
+
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('A4', '');
+
+// Render the HTML as PDF
+$dompdf->render();
+
+// Output the generated PDF to Browser
+$dompdf->stream('monthly_report_' . date("Ymdhis") . '.pdf');
+}
+
+
 loadTemplateView('monthly_report', [
     'report' => $report,
     'sumOfWorkedTime' => getTimeStringFromSeconds($sumOfWorkedTime),
+    'sign' => $sign,
     'balance' => "{$sign}{$balance}",
     'selectedPeriod' => $selectedPeriod,
     'periods' => $periods,

@@ -33,10 +33,9 @@
 				<button class="btn btn-info ml-2">
 					<i class="icofont-search"></i>
 				</button>
-         
-                <a class="btn btn-info ml-2" href="">
+                <button type="submit" name="export" value="export_pdf" class="btn btn-info ml-2" >
 					<i class="icofont-file-pdf"></i>
-                    </a>
+                </button>
 			</div>
 		</form>
 
@@ -66,10 +65,9 @@
                     <td><strong>Worked Hours</strong></td>
                     <td colspan="3"><strong><?= $sumOfWorkedTime ?></strong></td>
                     <td><strong>Balance</strong></td>
-                    <td><strong><?= $balance ?></strong></td>
+                    <td><strong><?= $sign?> <?= $balance?></strong></td>
                 </tr>
             </tbody>
         </table>
     </div>
 </main>
-
