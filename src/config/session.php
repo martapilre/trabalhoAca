@@ -8,9 +8,9 @@ function requireValidSession($requiresAdmin = false){
         header('Location: login.php');
         exit();
     //if user dont exists
-    } elseif($requiresAdmin && !$user->is_admin) {
+    } elseif ($requiresAdmin && !$user->is_admin) {
         addErrorMsg('Access denied!');
         header('Location: day_records.php');
         exit();
-    }
+    } 
 }

@@ -13,12 +13,12 @@
             <h3 class="value"><?= $activeUsersCount ?></h3>
         </div>
         <div class="summary-box bg-danger">
-            <i class="icon icofont-patient-bed"></i>
+            <i class="icon icofont-close"></i>
             <p class="title">Faults</p>
             <h3 class="value"><?= count($absentUsers) ?></h3>
         </div>
         <div class="summary-box bg-success">
-            <i class="icon icofont-sand-clock"></i>
+            <i class="icon icofont-clock-time"></i>
             <p class="title">Hours in Month</p>
             <h3 class="value"><?= $hoursInMonth ?></h3>
         </div>

@@ -25,7 +25,7 @@
                     <input type="email" id="email" name="email"
                         class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>"
                         value="<?= $email ?>"
-                        placeholder="Informe o e-mail" autofocus>
+                        placeholder="Insert your e-mail here" autofocus>
                     <div class="invalid-feedback">
                         <?= $errors['email'] ?>
                     </div>
@@ -34,14 +34,14 @@
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password"
                         class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>"
-                        placeholder="Informe a senha">
+                        placeholder="Insert your password here">
                     <div class="invalid-feedback">
                         <?= $errors['password'] ?>
                     </div>
                 </div>
             </div>
             <div class="card-footer">
-                <button class="btn btn-lg btn-primary">Login</button>
+                <button class="btn btn-lg btn-info">Login</button>
             </div>
         </div>
     </form>

@@ -44,8 +44,12 @@
     <h3>Monthy Report - <?= formatDateWithLocale($selectedPeriod, '%B %Y')?></h3>
     <br>
     <hr>
-    <p>User Name: <?= $users[$selectedUserId-1]->name?></p>
-    <p>User E-mail: <?= $users[$selectedUserId-1]->email?></p>
+    <?php if($user->is_admin){ ?>
+        <p>About User <?= $users[$selectedUserId-1]->name?></p>
+    <p>E-mail: <?= $users[$selectedUserId-1]->email?></p>
+    <?php } else {?>
+    <p>Name: <?= $user->name?></p>
+    <?php }?>
     <br>
     <table class="bordered">
         <thead>

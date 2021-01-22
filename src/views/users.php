@@ -16,6 +16,7 @@
         <thead>
             <th>Name</th>
             <th>Email</th>
+            <th>Admin</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th></th>
@@ -26,8 +27,13 @@
                 <tr>
                     <td><?= $user->name ?></td>
                     <td><?= $user->email ?></td>
+                    <td><?= $user->is_admin==1?'yes':'no' ?></td>
                     <td><?= $user->start_date ?></td>
                     <td><?= $user->end_date ?></td>
+                
+                <? if($user->id==1){ ?>
+                <td> </td>
+                <?} else {?>
                 <td>
                         <a href="save_user.php?update=<?= $user->id ?>" 
                             class="btn btn-outline-info mr-2">
@@ -38,6 +44,7 @@
                             Delete
                         </a>
                     </td>
+                <?}?>
                 </tr>
             <?php endforeach?>
         </tbody>

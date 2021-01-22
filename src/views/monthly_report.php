@@ -65,7 +65,7 @@
                     <td><strong>Worked Hours</strong></td>
                     <td colspan="3"><strong><?= $sumOfWorkedTime ?></strong></td>
                     <td><strong>Balance</strong></td>
-                    <td><strong><?= $sign?> <?= $balance?></strong></td>
+                    <td><strong><?= $balance?></strong></td>
                 </tr>
             </tbody>
         </table>
